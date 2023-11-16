@@ -5,3 +5,4 @@ this project implements tha famous data structure stack and its different functi
 this project handled also a set of possible errors.
 the files are stack_func1.c
 stack_func2.c
+stack_strings.c
