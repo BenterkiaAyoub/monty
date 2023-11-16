@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * open_file - Opens a file.
+ * opFl - Opens a file.
  * @file_name: The file pathname.
  * Return: void
  */
 
 
-void open_file(char *file_name)
+void opFl(char *file_name)
 {
 	FILE *fd = fopen(file_name, "r");
 

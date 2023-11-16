@@ -3,20 +3,20 @@ stack_t *head = NULL;
 
 /**
  * main - Entry point
- * @argumC: Arguments count
- * @arguV: List of arguments
+ * @argc: Arguments count
+ * @argv: List of arguments
  * Return: Always 0
  */
 
 
-int main(int argumC, char *arguV[])
+int main(int argc, char *argv[])
 {
-        if (argumC != 2)
+        if (argc != 2)
         {
                 fprintf(stderr, "USAGE: monty file\n");
                 exit(EXIT_FAILURE);
         }
-        opFl(arguV[1]);
+        opFl(argv[1]);
         free_nodes();
         return (0);
 }
@@ -60,12 +60,12 @@ void free_nodes(void)
 }
 
 /**
- * addToTheQueue - Adds a node to the queue.
+ * add_to_queue - Adds a node to the queue.
  * @new_node: Pointer to the new node.
- * @lenn: Line number of the opcode.
+ * @ln: Line number of the opcode.
  */
 
-void addToTheQueue(stack_t **new_node, __attribute__((unused))unsigned int lenn)
+void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
         stack_t *ttmmpp;
 

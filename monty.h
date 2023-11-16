@@ -37,7 +37,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
         char *opcd;
-        void (*f)(stack_t **stack, unsigned int lnNumber);
+        void (*f)(stack_t **stack, unsigned int lenn);
 } instruction_t;
 
 extern stack_t *head;
@@ -45,7 +45,7 @@ typedef void (*op_func)(stack_t **, unsigned int);
 
 /*Operations*/
 void opFl(char *file_name);
-int parseLn(char *buffer, int lnNumber, int format);
+int parseLn(char *buffer, int lenn, int format);
 void readFl(FILE *);
 int charLn(FILE *);
 void funFind(char *, char *, int, int);
