@@ -16,7 +16,7 @@ int main(int argumC, char *arguV[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	open_file(arguV[1]);
+	opFl(arguV[1]);
 	free_nodes();
 	return (0);
 }
