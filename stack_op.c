@@ -10,14 +10,14 @@ void nodeMul(stack_t **stack, unsigned int lenn)
 {
 	int opSum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		more_err(8, lenn, "mul");
 
-	(*stack) = (*stack)->next;
-	opSum = (*stack)->n * (*stack)->prev->n;
-	(*stack)->n = opSum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*stack) = (*stack)->nxt;
+	opSum = (*stack)->nm * (*stack)->previus->nm;
+	(*stack)->nm = opSum;
+	free((*stack)->previus);
+	(*stack)->previus = NULL;
 }
 
 
@@ -31,17 +31,17 @@ void nodesMod(stack_t **stack, unsigned int lenn)
 {
 	int opSum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 
 		more_err(8, lenn, "mod");
 
 
-	if ((*stack)->n == 0)
+	if ((*stack)->nm == 0)
 		more_err(9, lenn);
-	(*stack) = (*stack)->next;
-	opSum = (*stack)->n % (*stack)->prev->n;
-	(*stack)->n = opSum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*stack) = (*stack)->nxt;
+	opSum = (*stack)->nm % (*stack)->previus->nm;
+	(*stack)->nm = opSum;
+	free((*stack)->previus);
+	(*stack)->previus = NULL;
 }
 

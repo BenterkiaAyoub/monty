@@ -20,8 +20,8 @@ void addStack(stack_t **newNode, __attribute__((unused))unsigned int len)
 	}
 	ttmmpp = head;
 	head = *newNode;
-	head->next = ttmmpp;
-	ttmmpp->prev = head;
+	head->nxt = ttmmpp;
+	ttmmpp->previus = head;
 }
 
 
@@ -41,8 +41,8 @@ void stackPrint(stack_t **stack, unsigned int lenn)
 	ttmmpp = *stack;
 	while (ttmmpp != NULL)
 	{
-		printf("%d\n", ttmmpp->n);
-		ttmmpp = ttmmpp->next;
+		printf("%d\n", ttmmpp->nm);
+		ttmmpp = ttmmpp->nxt;
 	}
 }
 
@@ -60,9 +60,9 @@ void topPop(stack_t **stack, unsigned int lenn)
 		more_err(7, lenn);
 
 	ttmmpp = *stack;
-	*stack = ttmmpp->next;
+	*stack = ttmmpp->nxt;
 	if (*stack != NULL)
-		(*stack)->prev = NULL;
+		(*stack)->previus = NULL;
 	free(ttmmpp);
 }
 
@@ -76,6 +76,6 @@ void topPrint(stack_t **stack, unsigned int lenn)
 {
 	if (stack == NULL || *stack == NULL)
 		more_err(6, lenn);
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->nm);
 }
 

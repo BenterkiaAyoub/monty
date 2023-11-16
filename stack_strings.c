@@ -13,7 +13,7 @@ void charPrint(stack_t **stack, unsigned int lenn)
 	if (stack == NULL || *stack == NULL)
 		string_err(11, lenn);
 
-	ascii = (*stack)->n;
+	ascii = (*stack)->nm;
 	if (ascii < 0 || ascii > 127)
 		string_err(10, lenn);
 	printf("%c\n", ascii);
@@ -39,11 +39,11 @@ void stringPrint(stack_t **stack, __attribute__((unused))unsigned int ln)
 	ttmmpp = *stack;
 	while (ttmmpp != NULL)
 	{
-		ascii = ttmmpp->n;
+		ascii = ttmmpp->nm;
 		if (ascii <= 0 || ascii > 127)
 			break;
 		printf("%c", ascii);
-		ttmmpp = ttmmpp->next;
+		ttmmpp = ttmmpp->nxt;
 	}
 	printf("\n");
 }
@@ -58,18 +58,18 @@ void rotll(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	stack_t *ttmmpp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		return;
 
 	ttmmpp = *stack;
-	while (ttmmpp->next != NULL)
-		ttmmpp = ttmmpp->next;
+	while (ttmmpp->nxt != NULL)
+		ttmmpp = ttmmpp->nxt;
 
-	ttmmpp->next = *stack;
-	(*stack)->prev = ttmmpp;
-	*stack = (*stack)->next;
-	(*stack)->prev->next = NULL;
-	(*stack)->prev = NULL;
+	ttmmpp->nxt = *stack;
+	(*stack)->previus = ttmmpp;
+	*stack = (*stack)->nxt;
+	(*stack)->previus->nxt = NULL;
+	(*stack)->previus = NULL;
 }
 
 
@@ -83,18 +83,18 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	stack_t *ttmmpp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		return;
 
 	ttmmpp = *stack;
 
-	while (ttmmpp->next != NULL)
-		ttmmpp = ttmmpp->next;
+	while (ttmmpp->nxt != NULL)
+		ttmmpp = ttmmpp->nxt;
 
-	ttmmpp->next = *stack;
-	ttmmpp->prev->next = NULL;
-	ttmmpp->prev = NULL;
-	(*stack)->prev = ttmmpp;
+	ttmmpp->nxt = *stack;
+	ttmmpp->previus->nxt = NULL;
+	ttmmpp->previus = NULL;
+	(*stack)->previus = ttmmpp;
 	(*stack) = ttmmpp;
 }
 

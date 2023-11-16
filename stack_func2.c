@@ -23,15 +23,15 @@ void nodesSwap(stack_t **stack, unsigned int lenn)
 {
 	stack_t *ttmmpp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		more_err(8, lenn, "swap");
-	ttmmpp = (*stack)->next;
-	(*stack)->next = ttmmpp->next;
-	if (ttmmpp->next != NULL)
-		ttmmpp->next->prev = *stack;
-	ttmmpp->next = *stack;
-	(*stack)->prev = ttmmpp;
-	ttmmpp->prev = NULL;
+	ttmmpp = (*stack)->nxt;
+	(*stack)->nxt = ttmmpp->nxt;
+	if (ttmmpp->nxt != NULL)
+		ttmmpp->nxt->previus = *stack;
+	ttmmpp->nxt = *stack;
+	(*stack)->previus = ttmmpp;
+	ttmmpp->previus = NULL;
 	*stack = ttmmpp;
 }
 
@@ -45,14 +45,14 @@ void nodesAdd(stack_t **stack, unsigned int lenn)
 {
 	int opSum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		more_err(8, lenn, "add");
 
-	(*stack) = (*stack)->next;
-	opSum = (*stack)->n + (*stack)->prev->n;
-	(*stack)->n = opSum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*stack) = (*stack)->nxt;
+	opSum = (*stack)->nm + (*stack)->previus->nm;
+	(*stack)->nm = opSum;
+	free((*stack)->previus);
+	(*stack)->previus = NULL;
 }
 
 
@@ -61,21 +61,21 @@ void nodesAdd(stack_t **stack, unsigned int lenn)
  * @stack: Pointer to a pointer pointing to the top node of the stack.
  * @lenn: Integer representing the line number of the opcode.
  */
-/
+
 void nodesSub(stack_t **stack, unsigned int lenn)
 {
 	int opSum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 
 		more_err(8, lenn, "sub");
 
 
-	(*stack) = (*stack)->next;
-	opSum = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = opSum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*stack) = (*stack)->nxt;
+	opSum = (*stack)->nm - (*stack)->previus->nm;
+	(*stack)->nm = opSum;
+	free((*stack)->previus);
+	(*stack)->previus = NULL;
 }
 
 
@@ -89,15 +89,15 @@ void nodeDiv(stack_t **stack, unsigned int lenn)
 {
 	int opSum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->nxt == NULL)
 		more_err(8, lenn, "div");
 
-	if ((*stack)->n == 0)
+	if ((*stack)->nm == 0)
 		more_err(9, lenn);
-	(*stack) = (*stack)->next;
-	opSum = (*stack)->n / (*stack)->prev->n;
-	(*stack)->n = opSum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*stack) = (*stack)->nxt;
+	opSum = (*stack)->nm / (*stack)->previus->nm;
+	(*stack)->nm = opSum;
+	free((*stack)->previus);
+	(*stack)->previus = NULL;
 }
 

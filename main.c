@@ -11,14 +11,14 @@ stack_t *head = NULL;
 
 int main(int argumC, char *arguV[])
 {
-	if (argumC != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	opFl(arguV[1]);
-	free_nodes();
-	return (0);
+        if (argumC != 2)
+        {
+                fprintf(stderr, "USAGE: monty file\n");
+                exit(EXIT_FAILURE);
+        }
+        opFl(arguV[1]);
+        free_nodes();
+        return (0);
 }
 
 /**
@@ -29,15 +29,15 @@ int main(int argumC, char *arguV[])
 
 stack_t *create_node(int nm)
 {
-	stack_t *node;
+        stack_t *node;
 
-	node = malloc(sizeof(stack_t));
-	if (node == NULL)
-		err(4);
-	node->next = NULL;
-	node->prev = NULL;
-	node->nm = nm;
-	return (node);
+        node = malloc(sizeof(stack_t));
+ if (node == NULL)
+                err(4);
+        node->nxt = NULL;
+        node->previus = NULL;
+        node->nm = nm;
+        return (node);
 }
 
 /**
@@ -46,17 +46,17 @@ stack_t *create_node(int nm)
 
 void free_nodes(void)
 {
-	stack_t *ttmmpp;
+        stack_t *ttmmpp;
 
-	if (head == NULL)
-		return;
+        if (head == NULL)
+                return;
 
-	while (head != NULL)
-	{
-		ttmmpp = head;
-		head = head->next;
-		free(ttmmpp);
-	}
+        while (head != NULL)
+        {
+                ttmmpp = head;
+                head = head->nxt;
+                free(ttmmpp);
+        }
 }
 
 /**
@@ -67,21 +67,20 @@ void free_nodes(void)
 
 void addToTheQueue(stack_t **new_node, __attribute__((unused))unsigned int lenn)
 {
-	stack_t *ttmmpp;
+        stack_t *ttmmpp;
 
-	if (new_node == NULL || *new_node == NULL)
-		exit(EXIT_FAILURE);
-	if (head == NULL)
-	{
-		head = *new_node;
-		return;
-	}
-	ttmmpp = head;
-	while (ttmmpp->next != NULL)
-		ttmmpp = ttmmpp->next;
+        if (new_node == NULL || *new_node == NULL)
+                exit(EXIT_FAILURE);
+        if (head == NULL)
+        {
+                head = *new_node;
+                return;
+        }
+        ttmmpp = head;
+        while (ttmmpp->nxt != NULL)
+                ttmmpp = ttmmpp->nxt;
 
-	ttmmpp->next = *new_node;
-	(*new_node)->prev = ttmmpp;
+        ttmmpp->nxt = *new_node;
+        (*new_node)->previus = ttmmpp;
 
 }
-
