@@ -6,3 +6,4 @@ this project handled also a set of possible errors.
 the files are stack_func1.c
 stack_func2.c
 stack_strings.c
+stack_op.c
